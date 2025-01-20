@@ -17,7 +17,7 @@ class CategoryEventController extends Controller
         $categories = CategoryEvent::all();
 
         // Tampilkan data ke view
-        return view('category_event.index', compact('categories'));
+        return view('pages.category_event.index', compact('categories'));
     }
 
     /**
@@ -26,7 +26,7 @@ class CategoryEventController extends Controller
     public function create()
     {
         // Tampilkan form untuk membuat kategori baru
-        return view('category_event.create');
+        return view('pages.category_event.create');
     }
 
     /**
@@ -37,8 +37,8 @@ class CategoryEventController extends Controller
         // Validasi data
         $validated = $request->validate([
             'title' => 'required|string|max:255',
-            'author' => 'required|string|max:255',
-            'status' => 'required|boolean',
+            // 'author' => 'required|string|max:255',
+            // 'status' => 'required|boolean',
         ]);
 
         // Simpan data menggunakan model

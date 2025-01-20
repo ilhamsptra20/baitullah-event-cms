@@ -82,4 +82,6 @@ class StaterkitController extends Controller
             'breadcrumbs' => $breadcrumbs
         ]);
     }
+
+    
 }

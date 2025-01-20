@@ -9,8 +9,8 @@ class MetodePembayaran extends Model
     protected $table = 'mst_metode_pembayaran';
     protected $primaryKey = 'id_metode_pembayaran';
 
-    const CREATED_AT = 'created';
-    const UPDATED_AT = 'updated';
+    // const CREATED_AT = 'created';
+    // const UPDATED_AT = 'updated';
 
     protected $fillable = [
         'title',

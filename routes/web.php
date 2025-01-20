@@ -1,6 +1,9 @@
 <?php
   use App\Http\Controllers\LanguageController;
-
+use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\Auth;
+use App\Http\Controllers\Cms\CategoryEventController;
+use App\Http\Controllers\Cms\MetodePembayaranController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -34,3 +37,23 @@ Route::get('/modern-admin', 'AccessController@home')->middleware('permissions:ap
 
 // locale Route
 Route::get('lang/{locale}',[LanguageController::class,'swap']);
+
+
+// Category Event
+Route::prefix('/category_event')->name('category_event.')->group(function () {
+  Route::get('/', [CategoryEventController::class,'index'])->name('index');
+  Route::get('/create', [CategoryEventController::class,'create'])->name('create');
+  Route::post('/store', [CategoryEventController::class,'store'])->name('store');
+  Route::get('/edit/{id}', [CategoryEventController::class,'edit'])->name('edit');
+  Route::post('/edit/{id}', [CategoryEventController::class,'update'])->name('update');
+  Route::delete('/delete/{id}', [CategoryEventController::class,'destroy'])->name('destroy');
+});
+
+Route::prefix('/payment_method')->name('payment_method.')->group(function () {
+  Route::get('/', [MetodePembayaranController::class,'index'])->name('index');
+  Route::get('/create', [MetodePembayaranController::class,'create'])->name('create');
+  Route::post('/store', [MetodePembayaranController::class,'store'])->name('store');
+  Route::get('/edit/{id}', [MetodePembayaranController::class,'edit'])->name('edit');
+  Route::post('/edit/{id}', [MetodePembayaranController::class,'update'])->name('update');
+  Route::delete('/delete/{id}', [MetodePembayaranController::class,'destroy'])->name('destroy');
+});

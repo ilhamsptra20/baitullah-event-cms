@@ -18,7 +18,7 @@ class MetodePembayaranController extends Controller
         $metodePembayarans = MetodePembayaran::all();
 
         // Tampilkan data ke view
-        return view('metode_pembayaran.index', compact('metodePembayarans'));
+        return view('pages.payment_method.index', compact('metodePembayarans'));
     }
 
     /**
@@ -27,7 +27,7 @@ class MetodePembayaranController extends Controller
     public function create()
     {
         // Tampilkan form untuk membuat metode pembayaran baru
-        return view('metode_pembayaran.create');
+        return view('pages.payment_method.create');
     }
 
     /**
@@ -39,17 +39,17 @@ class MetodePembayaranController extends Controller
         $validated = $request->validate([
             'title' => 'required|string|max:255',
             'tutorial' => 'nullable|string',
-            'key_value' => 'required|string|max:255',
-            'order_by' => 'required|integer',
-            'author' => 'required|string|max:255',
-            'status' => 'required|boolean',
+        //     'key_value' => 'required|string|max:255',
+        //     'order_by' => 'required|integer',
+        //     'author' => 'required|string|max:255',
+        //     'status' => 'required|boolean',
         ]);
 
         // Simpan data ke database
         MetodePembayaran::create($validated);
 
         // Redirect ke halaman index dengan pesan sukses
-        return redirect()->route('metode_pembayaran.index')->with('success', 'Metode pembayaran berhasil ditambahkan.');
+        return redirect()->route('payment_method.index')->with('success', 'Metode pembayaran berhasil ditambahkan.');
     }
 
     /**
@@ -58,7 +58,7 @@ class MetodePembayaranController extends Controller
     public function show(MetodePembayaran $metodePembayaran)
     {
         // Tampilkan detail metode pembayaran
-        return view('metode_pembayaran.show', compact('metodePembayaran'));
+        return view('payment_method.show', compact('metodePembayaran'));
     }
 
     /**
@@ -67,7 +67,7 @@ class MetodePembayaranController extends Controller
     public function edit(MetodePembayaran $metodePembayaran)
     {
         // Tampilkan form edit dengan data metode pembayaran
-        return view('metode_pembayaran.edit', compact('metodePembayaran'));
+        return view('payment_method.edit', compact('metodePembayaran'));
     }
 
     /**
@@ -89,7 +89,7 @@ class MetodePembayaranController extends Controller
         $metodePembayaran->update($validated);
 
         // Redirect ke halaman index dengan pesan sukses
-        return redirect()->route('metode_pembayaran.index')->with('success', 'Metode pembayaran berhasil diperbarui.');
+        return redirect()->route('payment_method.index')->with('success', 'Metode pembayaran berhasil diperbarui.');
     }
 
     /**
@@ -101,6 +101,6 @@ class MetodePembayaranController extends Controller
         $metodePembayaran->delete();
 
         // Redirect ke halaman index dengan pesan sukses
-        return redirect()->route('metode_pembayaran.index')->with('success', 'Metode pembayaran berhasil dihapus.');
+        return redirect()->route('payment_method.index')->with('success', 'Metode pembayaran berhasil dihapus.');
     }
 }
