@@ -2,13 +2,10 @@
 
 namespace App;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
 class CategoryEvent extends Model
 {
-    use HasFactory;
-
     protected $table = 'tabel_event_category';
     protected $primaryKey = 'id_event_category';
 

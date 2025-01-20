@@ -2,13 +2,10 @@
 
 namespace App;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
 class TransaksiPemesanan extends Model
 {
-    use HasFactory;
-
     protected $table = "trs_pemesanan";
     protected $primaryKey = "id_trs_pemesanan";
 

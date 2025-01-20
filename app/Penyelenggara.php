@@ -2,15 +2,12 @@
 
 namespace App;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Database\Eloquent\Model;
 
 
 class Penyelenggara extends Authenticatable
 {
-    use HasFactory;
-
     protected $table = 'tabel_penyelenggara';
     protected $primaryKey = 'id_penyelenggara';
 
