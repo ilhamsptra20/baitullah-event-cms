@@ -2,13 +2,10 @@
 
 namespace App;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
 class Tiket extends Model
 {
-    use HasFactory;
-
     protected $table = 'tabel_tiket';
     protected $primaryKey = 'id_tiket';
 
